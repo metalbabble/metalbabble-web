@@ -1,0 +1,50 @@
+@font-face {
+    font-family: emu;
+    src: url(emulogic.ttf);
+}
+
+.muted {
+    color: #456;
+}
+
+.description {
+    max-width: 800px;
+    margin: auto;
+    color: rgb(236, 207, 109);
+}
+
+.centered {
+    text-align: center;
+}
+
+.carts {
+    background-color: #efefef;
+    color: black;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align:center;
+}
+
+li {
+    list-style-type: square;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: emu;
+    background-image: url(bg.png);
+    background-repeat: repeat-y;
+}
+
+@media screen and (max-width: 1140px) {
+    .carts {
+        text-align: center;
+    }
+    li {
+        list-style-type: none;
+    }
+}
