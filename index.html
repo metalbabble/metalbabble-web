@@ -1,9 +1,220 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="background: black; color: white; font-family: sans-serif; text-align: center; padding-top: 20%;">
-        Redirecting you to <a href="https://www.metalbabble.com">metalbabble.com</a>!
-        <script>window.location='https://www.metalbabble.com';</script>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>metalbabble.com</title>
+  <meta name="description" content="Indy games, retro mac resources, and other fun stuff - By Brian W. Shea">
+  <link rel="icon" type="image/png" href="img/icon.png">
+  <link rel="apple-touch-icon" href="img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="grid-canvas" aria-hidden="true"></canvas>
+
+<div class="crt-wrapper">
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-label="Open navigation menu">☰</button>
+    <a href="#about">ABOUT</a>
+    <a href="#games">GAMES</a>
+    <a href="#videos">VIDEOS</a>
+    <a href="#blog">BLOG</a>
+    <a href="#social">CONTACT</a>
+    <a id="toggle-high-contrast" class="nav-control" href="#" role="button" aria-pressed="false">ENABLE HIGH CONTRAST</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <canvas id="spaceship-canvas" width="560" height="160" aria-hidden="true"></canvas>
+    <h1 class="site-title">METALBABBLE.COM</h1>
+    <p class="tagline">Made with &#x2665; by Brian W. Shea<span class="cursor"></span></p>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-header">WHOAMI</h2>
+    <div class="about-text">
+      <span class="prompt">$ cat about.txt</span>
+        Metalbabble.com (a classic NES reference) is a name I’ve used in conjunction with various projects over the years; 
+        including web design, animation, music, comics, and indy video games. If you’re interested in any past projects, 
+        feel free to <a class="text-link" href='https://docs.google.com/forms/d/e/1FAIpQLSdOTtardHJ3GqxJz90TLBj4oZA-KSyPTT94z49uthJfteFPFw/viewform?embedded=true'>contact me</a>. Metalbabble.com is all about jumping into new territories, 
+        and celebrating technology as a medium. 
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="games">
+    <h2 class="section-header">FEATURED GAMES</h2>
+    <div class="games-grid">
+
+      <a class="game-card" href="https://metalbabble.github.io/rgblox/" target="_blank" rel="noopener">
+        <div class="game-thumb"><img src="img/rgblox.png" alt="RGBlox screenshot" loading="lazy"></div>
+        <span class="game-badge">PLAY ONLINE</span>
+        <span class="game-badge">OPEN SOURCE</span>
+        <div class="game-title">RGBlox</div>
+        <div class="game-desc">Steampunk falling-block puzzle &mdash; match three colors to clear the board. Keyboard &amp; touch controls.</div>
+        <span class="play-link">PLAY NOW</span>
+      </a>
+
+      <a class="game-card" href="https://metalbabble.github.io/vibe-arcade/" target="_blank" rel="noopener">
+        <div class="game-thumb"><img src="img/vibe-arcade.png" alt="Vibe Arcade screenshot" loading="lazy"></div>
+        <span class="game-badge">PLAY ONLINE</span>
+        <span class="game-badge">OPEN SOURCE</span>
+        <div class="game-title">Vibe Arcade</div>
+        <div class="game-desc">A collection of classic arcade games playable right in your browser. Keyboard &amp; touch supported.</div>
+        <span class="play-link">PLAY NOW</span>
+      </a>
+
+      <a class="game-card" href="https://metalbabble.github.io/stardust-fever/" target="_blank" rel="noopener">
+        <div class="game-thumb"><img src="img/stardust-fever.png" alt="Stardust Fever screenshot" loading="lazy"></div>
+        <span class="game-badge">PLAY ONLINE</span>
+        <span class="game-badge">OPEN SOURCE</span>
+        <div class="game-title">Stardust Fever</div>
+        <div class="game-desc">Retro arcade shooter &mdash; blast asteroids, battle aliens, and collect power-ups in deep space.</div>
+        <span class="play-link">PLAY NOW</span>
+      </a>
+
+      <a class="game-card" href="https://metalbabble.github.io/blockworld/" target="_blank" rel="noopener">
+        <div class="game-thumb"><img src="img/blockworld.png" alt="BlockWorld screenshot" loading="lazy"></div>
+        <span class="game-badge">UNDER CONSTRUCTION</span>
+        <div class="game-title">BlockWorld</div>
+        <div class="game-desc">BlockWorld is a <b>work in progress</b> game inspired by Minecraft. Explore and create in a procedurally generated world.</div>
+        <span class="play-link">PLAY NOW</span>
+      </a>
+
+      <a class="game-card" href="http://sandcastles.metalbabble.com/" target="_blank" rel="noopener">
+        <div class="game-thumb"><img src="img/super-sand-castles.png" alt="Super Sand Castles screenshot" loading="lazy"></div>
+        <span class="game-badge">WINDOWS</span>
+        <div class="game-title">Super Sand Castles</div>
+        <div class="game-desc">Jack the Apple is back in an all-new adventure on Sandcastle Island. Jack's arch nemesis, the evil Reaper is back too with tons of new baddies under his command!</div>
+        <span class="play-link">DOWNLOAD</span>
+      </a>
+
+      <a class="game-card" href="http://atari.metalbabble.com/" target="_blank" rel="noopener">
+        <div class="game-thumb"><img src="img/atari-games.png" alt="Atari Games screenshot" loading="lazy"></div>
+        <span class="game-badge">ROMs</span>
+        <div class="game-title">Atari Games</div>
+        <div class="game-desc">These are real games that can play on real Atari 2600 systems! They can be ordered on physical cartridge, downloaded for use in emulators, or even played online - right in your web browser.</div>
+        <span class="play-link">VIEW &amp; PLAY</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <h2 class="section-header">VIDEOS</h2>
+    <div class="yt-container">
+      <div class="yt-embed-wrapper">
+        <iframe src="https://www.youtube.com/embed/mocMDL6aLTc"
+          title="Kuruma - add AI to your vehicle!"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="yt-embed-wrapper">
+        <iframe src="https://www.youtube.com/embed/xjMc5gISvq4"
+          title="Slopwave Volume 2"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="yt-embed-wrapper">
+        <iframe src="https://www.youtube.com/embed/yBeRVuznlOA"
+          title="S L O P W A V E"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="yt-embed-wrapper">
+        <iframe src="https://www.youtube.com/embed/bwZU7zMSnHw"
+          title="Super Sand Castles"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <p class="yt-cta">
+      <a href="https://www.youtube.com/@metalbabbleDotCom" target="_blank" rel="noopener">SUBSCRIBE ON YOUTUBE</a>
+    </p>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <h2 class="section-header">THE 68K BLOG</h2>
+    <p class="blog-text">
+      Adventures in classic Macintosh computing &mdash; resources, hacks, software archaeology,
+      and deep dives into the machines that started it all.
+    </p>
+    <a class="terminal-link" href="https://metalbabble.wordpress.com/" target="_blank" rel="noopener">READ THE BLOG</a>
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social">
+    <h2 class="section-header">CONNECT</h2>
+    <div class="social-grid">
+      <a class="social-link" href="https://www.linkedin.com/in/metalbabble/" target="_blank" rel="noopener">
+        <span class="social-icon">&#x25A0;</span>
+        <span>LINKEDIN</span>
+      </a>
+
+      <a class="social-link" href="https://github.com/metalbabble" target="_blank" rel="noopener">
+        <span class="social-icon">&#x2665;</span>
+        <span>GITHUB</span>
+      </a>
+
+      <a class="social-link" href="https://soundcloud.com/metalbabble/tracks" target="_blank" rel="noopener">
+        <span class="social-icon">&#x266B;</span>
+        <span>SOUNDCLOUD</span>
+      </a>
+
+      <a class="social-link" href="https://www.youtube.com/@metalbabbleDotCom" target="_blank" rel="noopener">
+        <span class="social-icon">&#x25BA;</span>
+        <span>YOUTUBE</span>
+      </a>
+
+      <a class="social-link" href="https://metalbabble.wordpress.com/" target="_blank" rel="noopener">
+        <span class="social-icon">&#x2710;</span>
+        <span>WORDPRESS</span>
+      </a>
+
+      
+      <a class="social-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdOTtardHJ3GqxJz90TLBj4oZA-KSyPTT94z49uthJfteFPFw/viewform?embedded=true" target="_blank" rel="noopener">
+        <span class="social-icon">&#x2709;</span>
+        <span>CONTACT ME</span>
+      </a>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; METALBABBLE.COM &bull; ALL RIGHTS RESERVED</p>
+    <p style="margin-top:0.4rem;">CELEBRATING OVER 25 YEARS OF METALBABBLEING</p>
+  </footer>
+
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar" role="status" aria-label="Site status">
+  <span id="status-left">METALBABBLE.COM</span>
+  <span id="status-right"></span>
+</div>
+
+<script src="main.js"></script>
+<script src="spaceship.js" defer></script>
+<script src="grid.js" defer></script>
+
+</body>
 </html>
