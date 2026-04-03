@@ -160,26 +160,55 @@
     }
     ctx.globalAlpha = 1;
 
-    // ── Vertical lines ────────────────────────────────────────────────────────
-    var numV = Math.min(11, Math.max(6, Math.floor(W / 110)));
-    for (var i = -numV; i <= numV; i++) {
-      var xBottom  = VPX + i * (W / (numV * 2));
-      var xNorm    = xBottom / W;                          // 0..1 left→right
-      var distNorm = Math.abs(i) / numV;                   // 0=center, 1=edge
-      var maxAlpha = (1 - distNorm * 0.5) * 0.50;
+    // ── Perspective rays (full 180-degree fan) ──────────────────────────────
+    // This replaces the old downward-only bottom-ray behavior so the grid feels
+    // uniform and reaches the left/right edges as well.
+    var numRays = Math.min(30, Math.max(14, Math.floor(W / 40)));
+    for (var ri = 0; ri <= numRays; ri++) {
+      var t = ri / numRays;                    // 0..1 along the half circle
+      var angle = Math.PI * t;
+      var dx = Math.cos(angle);
+      var dy = Math.sin(angle);
 
-      var rgb = lerpColor(xNorm);
-      // Gradient along the line: transparent at VP, full at bottom
-      var vGrad = ctx.createLinearGradient(VPX, VPY, xBottom, H);
+      // Find intersection with the canvas boundary in ray direction.
+      var targetX = VPX;
+      var targetY = VPY;
+      var best = Infinity;
+
+      if (dx > 1e-6) {
+        var tx = (W - VPX) / dx;
+        if (tx > 0 && tx < best) { best = tx; targetX = W; targetY = VPY + tx * dy; }
+      } else if (dx < -1e-6) {
+        var tx = -VPX / dx;
+        if (tx > 0 && tx < best) { best = tx; targetX = 0; targetY = VPY + tx * dy; }
+      }
+
+      if (dy > 1e-6) {
+        var ty = (H - VPY) / dy;
+        if (ty > 0 && ty < best) { best = ty; targetX = VPX + ty * dx; targetY = H; }
+      } else if (dy < -1e-6) {
+        var ty = -VPY / dy;
+        if (ty > 0 && ty < best) { best = ty; targetX = VPX + ty * dx; targetY = 0; }
+      }
+
+      targetX = Math.max(0, Math.min(W, targetX));
+      targetY = Math.max(0, Math.min(H, targetY));
+
+      var edgeDist = Math.abs(t - 0.5) * 2;    // 0=center (down), 1=edge (horiz)
+      var maxAlpha = Math.max(0, (1 - edgeDist * 0.64) * 0.50);
+
+      var xNorm = targetX / W;
+      var rgb   = lerpColor(xNorm);
+      var vGrad = ctx.createLinearGradient(VPX, VPY, targetX, targetY);
       vGrad.addColorStop(0,   rgba(rgb, 0));
-      vGrad.addColorStop(0.25, rgba(rgb, maxAlpha * 0.4));
+      vGrad.addColorStop(0.20, rgba(rgb, maxAlpha * 0.35));
       vGrad.addColorStop(1,   rgba(rgb, maxAlpha));
 
       ctx.strokeStyle = vGrad;
       ctx.lineWidth   = 0.85;
       ctx.beginPath();
       ctx.moveTo(VPX, VPY);
-      ctx.lineTo(xBottom, H);
+      ctx.lineTo(targetX, targetY);
       ctx.stroke();
     }
 
