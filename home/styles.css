@@ -200,6 +200,39 @@ section {
   color: inherit;
 }
 
+/* ── GAME THUMBNAIL ── */
+.game-thumb {
+  width: calc(100% + 2.2rem);
+  margin: -1rem -1.1rem 0.75rem;
+  height: 160px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--green-dim);
+}
+
+.game-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.7) brightness(0.85);
+  transition: filter 0.2s;
+}
+
+.game-card:hover .game-thumb img {
+  filter: saturate(1) brightness(1);
+}
+
+.game-thumb--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: var(--green-dim);
+  letter-spacing: 0.1em;
+}
+
 .game-card::before {
   content: '';
   position: absolute;

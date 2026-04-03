@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:sites.google.com)",
-      "WebFetch(domain:www.youtube.com)"
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(curl -sL \"https://lh3.googleusercontent.com/sitesv/APaQ0STRTmdPsbQ2vbPyHS5UvaDET17tYSK9Ln4rlm97vkRO8GrIzdyb_ztVI2HKU2gG5mXAaJLn4rqMC3AS7S5UzjCKKujY9Dx7o17tsV_5jffDksOD37ztysvlJS5APJ1BT7UUp5sK3idR0yjGXh0-XP0JiktX7VIn6GeL-KvpOWQrZbGtElXU8CiZrXM=w1280\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/rgblox.jpg\")",
+      "Bash(curl -sL \"https://lh3.googleusercontent.com/sitesv/APaQ0SSggTnuUVEJa8N53DzEA7KHfjNRVrXdZxQ0b3ukHKSavN7o32lq7X5EwtFFEIXL1dy8lYuOBHkc_0G42MElUeAnQxxu4exaD39vBiWtOELIXK2iC3a4UHHVfmu38b6-5fCxSg06jZceCaG3A70UsY3MMZUgjHjAsIvEL9SHD5BsClMA2pyiDzP2h9D-NDZL2uHLbU07jYmruFUrSIEjHIf1X6h2iCXqwXFB=w1280\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/vibe-arcade.jpg\")",
+      "Bash(curl -sL \"https://lh3.googleusercontent.com/sitesv/APaQ0SSms45-IKsVsdUPYHVBmxI7JBMaw8b89Vo2XbT50LF1z7tElR-N-h5xPdDhIsUwSizvqsr9w2VPMtsBm5MrXAeqa3fewvjPFyh-28icDJ09LE36Lwh6ZdZBhM_wyW3leGnUNz39L2YCzPL4ijtGb2eyhdA0drkTStSzoflPwUOkpd8aVCs-a1n0ndM=w1280\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/stardust-fever.jpg\")",
+      "Bash(curl -sL \"https://lh3.googleusercontent.com/sitesv/APaQ0SRNbNmJOt9PecZRDy9wPXZ--y0eKJfwprSgdFwqqmnjGiclwv84Wec5mg1-4xLcRsEZ-b8EH42ZuGya3aBd-ieW0JoBfKyy4uGP1B107crf5HQ6-pPMRTcxeQvSweCc_ZI-afL3ZfUDf1TI0IfgTMmWZxZGqA6UmnDgVbbDnrtRIQnJxST60oan=w1280\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/blockworld.jpg\")",
+      "Bash(curl -sL \"https://lh3.googleusercontent.com/sitesv/APaQ0SS2cQTfOYaHYWY1Hd_U42kY_FUXuXFlazkCL68B9kuL8d1SSged6ewoIBJ4t24Y_W4FAuI7lshWjD5zio8U7xwGxWUkCyc-1_HYAO4tvRGBjFVX3YWR9BxW_QlZFSO-jdpADuk2BvKsWQlPb3_eXFroyGlBXpQCdj0Q_ZgyOt646b4FAyO8bQbFcKE=w1280\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/super-sand-castles.jpg\")",
+      "Bash(file \"c:/Users/afloc/Source/metalbabble-web/home/img/\"*.jpg)",
+      "WebFetch(domain:metalbabble.github.io)",
+      "Bash(curl -sL \"https://metalbabble.github.io/stardust-fever/assets/main-bg.png\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/stardust-fever.png\")"
     ]
   }
 }
