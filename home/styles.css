@@ -171,6 +171,11 @@ body.high-contrast #grid-canvas {
   display: block;
 }
 
+body.high-contrast .site-title {
+  animation: none;
+  text-shadow: none;
+}
+
 body.high-contrast nav a,
 body.high-contrast .site-title,
 body.high-contrast .section-header,
@@ -510,6 +515,26 @@ footer {
   justify-content: space-between;
   z-index: 1000;
   letter-spacing: 0.08em;
+  overflow: hidden;
+}
+
+.status-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18) 0px,
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.high-contrast .status-bar::after {
+  display: none;
 }
 
 /* ── MOBILE ── */
