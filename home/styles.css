@@ -204,7 +204,7 @@ section {
 .game-thumb {
   width: calc(100% + 2.2rem);
   margin: -1rem -1.1rem 0.75rem;
-  height: 160px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-bottom: 1px solid var(--green-dim);
 }
@@ -288,6 +288,20 @@ section {
 .play-link::after  { content: ' ]'; }
 
 .play-link:hover {
+  color: var(--amber);
+  text-shadow: 0 0 6px var(--amber);
+}
+
+.text-link {
+  color: var(--green);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.text-link::before { content: '['; }
+.text-link::after  { content: ']'; }
+
+.text-link:hover {
   color: var(--amber);
   text-shadow: 0 0 6px var(--amber);
 }
