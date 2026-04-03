@@ -202,7 +202,7 @@ header {
   font-family: 'VT323', monospace;
   font-size: clamp(3rem, 10vw, 6rem);
   letter-spacing: 0.08em;
-  color: var(--amber);
+  color: white;
   animation: glow-pulse 3s ease-in-out infinite;
   line-height: 1;
 }
