@@ -55,3 +55,6 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.4 });
 sections.forEach(s => observer.observe(s));
+
+// Just for fun!
+console.log('Wait a minute, is this an easter egg? Well hello fellow developer, thanks for checking out the code! If you have any questions or want to chat about anything, feel free to reach out: https://www.metalbabble.com/contact');
