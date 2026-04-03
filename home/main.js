@@ -57,4 +57,4 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(s => observer.observe(s));
 
 // Just for fun!
-console.log('Wait a minute, is this an easter egg? Well hello fellow developer, thanks for checking out the code! If you have any questions or want to chat about anything, feel free to reach out: https://www.metalbabble.com/contact');
+console.log('Wait a minute, is this an easter egg? Well hello fellow developer, thanks for taking a look under the hood! If you have any questions or want to chat about anything, feel free to reach out: https://www.metalbabble.com/contact');
