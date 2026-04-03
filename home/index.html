@@ -26,7 +26,7 @@
     <a href="#videos">VIDEOS</a>
     <a href="#blog">BLOG</a>
     <a href="#social">CONTACT</a>
-    <a id="toggle-high-contrast" class="nav-control" href="#" aria-pressed="false">ENABLE HIGH CONTRAST</a>
+    <a id="toggle-high-contrast" class="nav-control" href="#" role="button" aria-pressed="false">ENABLE HIGH CONTRAST</a>
   </nav>
 
   <!-- HEADER -->
@@ -35,6 +35,9 @@
     <h1 class="site-title">METALBABBLE.COM</h1>
     <p class="tagline">Made with &#x2665; by Brian W. Shea<span class="cursor"></span></p>
   </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
 
   <!-- ABOUT -->
   <section id="about">
@@ -193,6 +196,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer>
     <p>&copy; METALBABBLE.COM &bull; ALL RIGHTS RESERVED</p>
@@ -202,7 +207,7 @@
 </div>
 
 <!-- STATUS BAR -->
-<div class="status-bar">
+<div class="status-bar" role="status" aria-label="Site status">
   <span id="status-left">METALBABBLE.COM</span>
   <span id="status-right"></span>
 </div>
