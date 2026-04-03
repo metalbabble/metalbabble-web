@@ -22,6 +22,24 @@ if (highContrastLink) {
   });
 }
 
+// Mobile nav toggle
+const nav = document.getElementById('main-nav');
+const navToggle = document.getElementById('nav-toggle');
+if (nav && navToggle) {
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('expanded', !expanded);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 600) {
+      nav.classList.remove('expanded');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 // Highlight nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav a:not(.nav-control)');
