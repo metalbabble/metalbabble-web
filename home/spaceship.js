@@ -85,6 +85,66 @@
     return [CX + v[0] * sc, CY - v[1] * sc, v[2]];
   }
 
+  // ─── Drag-to-rotate state ─────────────────────────────────────────────────────
+  var manualYaw   = 0, manualPitch = 0;
+  var velYaw      = 0, velPitch    = 0;
+  var userMoved   = false;   // true once the user has dragged
+  var dragging    = false;
+  var dragX       = 0, dragY = 0;
+  var lastDX      = 0, lastDY = 0;  // last frame's delta for velocity capture
+  var SENSITIVITY = 0.009;          // radians per pixel
+
+  function pointerPos(e) {
+    var r  = canvas.getBoundingClientRect();
+    var sx = canvas.width  / r.width;
+    var sy = canvas.height / r.height;
+    var src = e.touches ? e.touches[0] : e;
+    return [(src.clientX - r.left) * sx, (src.clientY - r.top) * sy];
+  }
+
+  function onDragStart(e) {
+    e.preventDefault();
+    dragging = true;
+    var p = pointerPos(e);
+    dragX = p[0]; dragY = p[1];
+    lastDX = lastDY = 0;
+    velYaw = velPitch = 0;
+  }
+
+  function onDragMove(e) {
+    if (!dragging) return;
+    e.preventDefault();
+    var p  = pointerPos(e);
+    lastDX = (p[0] - dragX) * SENSITIVITY;
+    lastDY = (p[1] - dragY) * SENSITIVITY;
+    manualYaw   += lastDX;
+    manualPitch += lastDY;
+    // clamp pitch so ship doesn't flip past poles
+    manualPitch = Math.max(-Math.PI * 0.45, Math.min(Math.PI * 0.45, manualPitch));
+    dragX = p[0]; dragY = p[1];
+    userMoved = true;
+  }
+
+  function onDragEnd() {
+    if (!dragging) return;
+    dragging = false;
+    // carry the last-frame delta as angular velocity
+    velYaw   = lastDX;
+    velPitch = lastDY;
+  }
+
+  canvas.addEventListener('mousedown',  onDragStart, { passive: false });
+  canvas.addEventListener('mousemove',  onDragMove,  { passive: false });
+  canvas.addEventListener('mouseup',    onDragEnd);
+  canvas.addEventListener('mouseleave', onDragEnd);
+
+  canvas.addEventListener('touchstart', onDragStart, { passive: false });
+  canvas.addEventListener('touchmove',  onDragMove,  { passive: false });
+  canvas.addEventListener('touchend',   onDragEnd);
+
+  // visual cue: grab cursor when hovering
+  canvas.style.cursor = 'grab';
+
   // ─── Animation loop ───────────────────────────────────────────────────────────
   var raf    = null;
   var paused = false;
@@ -94,8 +154,21 @@
 
     ctx.clearRect(0, 0, W, H);
 
-    var ay = ts * 0.00055;
-    var ax = Math.sin(ts * 0.00028) * 0.22;  // gentle pitch wobble
+    var ay, ax;
+    if (userMoved) {
+      // After first interaction: use manual angles + inertia
+      if (!dragging) {
+        manualYaw   += velYaw;
+        manualPitch += velPitch;
+        manualPitch  = Math.max(-Math.PI * 0.45, Math.min(Math.PI * 0.45, manualPitch));
+      }
+      ay = manualYaw;
+      ax = manualPitch;
+    } else {
+      // Default auto-rotation until user touches it
+      ay = ts * 0.00055;
+      ax = Math.sin(ts * 0.00028) * 0.22;  // gentle pitch wobble
+    }
 
     var pts = V.map(function (v) { return proj(rx(ry(v, ay), ax)); });
 
