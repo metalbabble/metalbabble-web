@@ -8,9 +8,23 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+// Accessibility: enable/disable high contrast mode
+const highContrastLink = document.getElementById('toggle-high-contrast');
+if (highContrastLink) {
+  highContrastLink.addEventListener('click', function (event) {
+    event.preventDefault();
+    const body = document.body;
+    const isActive = !body.classList.contains('high-contrast');
+    body.classList.toggle('high-contrast', isActive);
+    highContrastLink.textContent = isActive ? 'DISABLE HIGH CONTRAST' : 'ENABLE HIGH CONTRAST';
+    highContrastLink.setAttribute('aria-pressed', String(isActive));
+    window.dispatchEvent(new CustomEvent('highContrastMode', { detail: { enabled: isActive } }));
+  });
+}
+
 // Highlight nav link on scroll
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav a');
+const navLinks = document.querySelectorAll('nav a:not(.nav-control)');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

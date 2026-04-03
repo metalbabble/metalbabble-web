@@ -126,6 +126,50 @@ nav a:hover {
   text-shadow: 0 0 8px var(--green-glow);
 }
 
+nav .nav-control {
+  margin-left: auto;
+  color: var(--amber);
+  font-weight: bold;
+}
+nav .nav-control:hover {
+  color: #ffd76d;
+  text-shadow: 0 0 10px rgba(255,191,0,0.8);
+}
+
+body.high-contrast {
+  background-color: #000;
+  color: #ffffff;
+}
+
+body.high-contrast::before,
+body.high-contrast::after {
+  display: none;
+}
+
+body.high-contrast .crt-wrapper {
+  background: #000;
+  opacity: 1;
+  animation: none;
+  box-shadow: none;
+}
+
+/* Keep the grid visible in high-contrast mode, but the content overlay is opaque */
+body.high-contrast #grid-canvas {
+  display: block;
+}
+
+body.high-contrast nav a,
+body.high-contrast .site-title,
+body.high-contrast .section-header,
+body.high-contrast .social-link,
+body.high-contrast .terminal-link,
+body.high-contrast .yt-cta a,
+body.high-contrast .text-link,
+body.high-contrast .play-link {
+  color: #ffffff;
+  text-shadow: none;
+}
+
 /* ── HEADER ── */
 header {
   text-align: center;

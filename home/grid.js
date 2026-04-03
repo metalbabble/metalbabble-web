@@ -68,6 +68,19 @@
   var lastTs   = null;
   var raf      = null;
 
+  function stopGrid() {
+    if (raf !== null) {
+      cancelAnimationFrame(raf);
+      raf = null;
+    }
+  }
+
+  function startGrid() {
+    if (raf !== null) return;
+    lastTs = null;
+    raf = requestAnimationFrame(draw);
+  }
+
   function draw(ts) {
     if (lastTs !== null) worldPos += (ts - lastTs) * 0.001 * SPEED;
     lastTs = ts;
@@ -173,15 +186,14 @@
     raf = requestAnimationFrame(draw);
   }
 
+  // Keep the grid running even in high-contrast mode.
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
-      cancelAnimationFrame(raf);
-      raf = null;
+      stopGrid();
     } else {
-      lastTs = null;
-      raf = requestAnimationFrame(draw);
+      startGrid();
     }
   });
 
-  raf = requestAnimationFrame(draw);
+  startGrid();
 }());
