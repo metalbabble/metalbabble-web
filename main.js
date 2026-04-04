@@ -56,5 +56,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 sections.forEach(s => observer.observe(s));
 
-// Just for fun!
-console.log('Wait a minute, is this an easter egg? Well hello fellow developer, thanks for taking a look under the hood! If you have any questions or want to chat about anything, feel free to reach out: https://www.metalbabble.com/contact');
+// Easter egg!
+function showPiMsg() {
+  alert('"Fun fact: the metalbabble.com main home page including the spaceship animation and various images ' +
+        'in total is small enough to fit on a single 3.5" floppy disk!" -Mozart\'s Ghost');
+}
+
+// Another easter egg!
+console.log('Wait a minute, is this an easter egg? Well hello fellow developer, ' +
+            'thanks for taking a look under the hood! If you have any questions or want ' +
+            'to chat about anything, feel free to reach out: https://www.metalbabble.com/contact');
