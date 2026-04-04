@@ -25,11 +25,11 @@
     [-0.28,  0.20, -0.75],  //  2  fwd TL
     [ 0.28, -0.18, -0.75],  //  3  fwd BR
     [-0.28, -0.18, -0.75],  //  4  fwd BL
-    // Wings
-    [ 2.15,  0.08,  0.05],  //  5  R wing tip
-    [-2.15,  0.08,  0.05],  //  6  L wing tip
-    [ 0.82,  0.08,  0.05],  //  7  R wing root
-    [-0.82,  0.08,  0.05],  //  8  L wing root
+    // Gun barrel tips (one per wing)
+    [ 2.00,  0.70, -1.20],  //  5  UR gun tip
+    [-2.00,  0.70, -1.20],  //  6  UL gun tip
+    [ 2.00, -0.62, -1.20],  //  7  LR gun tip
+    [-2.00, -0.62, -1.20],  //  8  LL gun tip
     // Rear hull ring
     [ 0.38,  0.20,  1.10],  //  9  rear TR
     [-0.38,  0.20,  1.10],  // 10  rear TL
@@ -43,6 +43,26 @@
     // Dorsal fin
     [ 0.00,  0.58, -0.20],  // 17  fin apex
     [ 0.00,  0.20,  0.75],  // 18  fin base rear
+    // Upper-right wing (trapezoid panel, angled up)
+    [ 0.60,  0.20, -0.10],  // 19  UR root leading
+    [ 0.60,  0.20,  0.85],  // 20  UR root trailing
+    [ 2.00,  0.70,  0.05],  // 21  UR tip leading
+    [ 2.00,  0.58,  0.85],  // 22  UR tip trailing
+    // Upper-left wing (mirror)
+    [-0.60,  0.20, -0.10],  // 23  UL root leading
+    [-0.60,  0.20,  0.85],  // 24  UL root trailing
+    [-2.00,  0.70,  0.05],  // 25  UL tip leading
+    [-2.00,  0.58,  0.85],  // 26  UL tip trailing
+    // Lower-right wing (angled down)
+    [ 0.60, -0.18, -0.10],  // 27  LR root leading
+    [ 0.60, -0.18,  0.85],  // 28  LR root trailing
+    [ 2.00, -0.62,  0.05],  // 29  LR tip leading
+    [ 2.00, -0.50,  0.85],  // 30  LR tip trailing
+    // Lower-left wing (mirror)
+    [-0.60, -0.18, -0.10],  // 31  LL root leading
+    [-0.60, -0.18,  0.85],  // 32  LL root trailing
+    [-2.00, -0.62,  0.05],  // 33  LL tip leading
+    [-2.00, -0.50,  0.85],  // 34  LL tip trailing
   ];
 
   // ── Edges: pairs of vertex indices ──
@@ -51,10 +71,22 @@
     [0, 1], [0, 2], [0, 3], [0, 4],
     // Fwd hull ring
     [1, 2], [2, 4], [4, 3], [3, 1],
-    // Wings
-    [5, 7], [7, 8], [8, 6],
-    [7, 1], [7, 3],   // R wing connects to fwd hull
-    [8, 2], [8, 4],   // L wing connects to fwd hull
+    // Upper-right wing panel + gun barrel
+    [19, 21], [20, 22], [21, 22], [19, 20], [19, 22],
+    [19,  1], [20,  9],   // root connects to fwd/rear hull TR
+    [21,  5],             // gun barrel
+    // Upper-left wing panel + gun barrel
+    [23, 25], [24, 26], [25, 26], [23, 24], [23, 26],
+    [23,  2], [24, 10],   // root connects to fwd/rear hull TL
+    [25,  6],             // gun barrel
+    // Lower-right wing panel + gun barrel
+    [27, 29], [28, 30], [29, 30], [27, 28], [27, 30],
+    [27,  3], [28, 11],   // root connects to fwd/rear hull BR
+    [29,  7],             // gun barrel
+    // Lower-left wing panel + gun barrel
+    [31, 33], [32, 34], [33, 34], [31, 32], [31, 34],
+    [31,  4], [32, 12],   // root connects to fwd/rear hull BL
+    [33,  8],             // gun barrel
     // Hull fore→aft strakes
     [1, 9], [2, 10], [3, 11], [4, 12],
     // Rear hull ring
