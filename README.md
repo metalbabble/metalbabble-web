@@ -10,5 +10,5 @@ This repo contains pages and content that make up the <http://www.metalbabble.co
 
 ## Hosting Details
 
-This repo is set up to publish from the main branch to GitHub pages,
-and <http://www.metalbabble.com/> itself links to these areas!
+- This repo is set up to publish from the main branch to GitHub pages for hosting.
+- GitHub uses the CNAME file to bind to the domain
