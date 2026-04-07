@@ -10,7 +10,8 @@
       "Bash(curl -sL \"https://lh3.googleusercontent.com/sitesv/APaQ0SS2cQTfOYaHYWY1Hd_U42kY_FUXuXFlazkCL68B9kuL8d1SSged6ewoIBJ4t24Y_W4FAuI7lshWjD5zio8U7xwGxWUkCyc-1_HYAO4tvRGBjFVX3YWR9BxW_QlZFSO-jdpADuk2BvKsWQlPb3_eXFroyGlBXpQCdj0Q_ZgyOt646b4FAyO8bQbFcKE=w1280\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/super-sand-castles.jpg\")",
       "Bash(file \"c:/Users/afloc/Source/metalbabble-web/home/img/\"*.jpg)",
       "WebFetch(domain:metalbabble.github.io)",
-      "Bash(curl -sL \"https://metalbabble.github.io/stardust-fever/assets/main-bg.png\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/stardust-fever.png\")"
+      "Bash(curl -sL \"https://metalbabble.github.io/stardust-fever/assets/main-bg.png\" -o \"c:/Users/afloc/Source/metalbabble-web/home/img/stardust-fever.png\")",
+      "Bash(curl -s \"https://www.youtube.com/@metalbabbleDotCom/videos\")"
     ]
   }
 }
