@@ -13,3 +13,9 @@ This repo contains pages and content that make up the <http://www.metalbabble.co
 - This repo is set up to publish from the main branch to GitHub pages
 - GitHub uses the CNAME file to bind to the domain
 - Metalbabble.com DNS points to GitHub pages
+
+## Additional Info
+
+There is a `\util` folder for any scripts used in conjunction with maintaining this repo:
+
+- update-content.sh - refreshes the blog and YouTube videos with current content
