@@ -462,6 +462,10 @@ section {
   margin-bottom: 1rem;
 }
 
+ul.blog-text {
+  padding-left: 1.5rem;
+}
+
 .terminal-link {
   display: inline-block;
   font-size: 0.9rem;
