@@ -434,6 +434,26 @@ section {
 
 .yt-cta a::before { content: '>> '; }
 
+/* ── PROJECTS ── */
+.project-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.project-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: auto;
+}
+
+.project-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--green-dim);
+  margin: 0 0 1rem;
+}
+
 /* ── BLOG ── */
 .blog-text {
   font-size: 0.9rem;
